@@ -1,0 +1,15 @@
+h1{
+    color: blue;
+    
+}
+
+#profileImage {
+    display: block;
+    margin: 0 auto;
+    max-width: 20%;
+}
+#skillsImage {
+    display: block;
+    margin: 0 auto;
+    max-width: 10%;
+}
