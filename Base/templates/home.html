@@ -9,67 +9,97 @@
     <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-</head>
-<body>
-    <!-- navbar section -->
-     <!-- <nav id="navbar" class="flex s-round bg-color">
-        <div class="left-nav">
-            <h2 class="t-white">Portfolio</h2>
-        </div>
-        <div class="right-nav">
-            <li><a href="#home" class="t-white roboto">Home<i class="fa-solid fa-house"></i></a></li>
-            <li><a href="#about" class="t-white roboto">About Me<i class="fa-solid fa-solid"></i></a></li>
-            <li><a href="#skills" class="t-white roboto">Skills<i class="fa-solid fa-code"></i></a></li>
-            <li><a href="#projects" class="t-white roboto">Projects<i class="fa-solid fa-project-diagram"></i></a></li>
-            <li><a href="#Contact" class="t-white roboto">Contact<i class="fa-solid fa-rocket"></i></a></li>
-        </div>
-     </nav> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
+</head>
+<body data-bs-theme="dark">
+    <!-- navbar section -->
      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link active" href="#home">Home
                             <span class="visually-hidden">(current)</span>
+                            <i class="bi bi-house-fill"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#about">About</a>
+                        <a class="nav-link active" href="#about">About<i class="bi bi-person-fill"></i></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="#skills">Skills</a>
+                      <a class="nav-link active" href="#skills">Skills<i class="bi bi-code-slash"></i></a>
                      </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#projects">Projects</a>
+                        <a class="nav-link active" href="#projects">Projects<i class="bi bi-git"></i></a>   
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#Contact">Contact</a>
+                        <a class="nav-link active" href="#Contact">Contact<i class="bi bi-rocket-fill"></i></a>
                     </li>
+                    <!-- <li class="nav-item"> -->
+                        <!-- <a class="nav-link active" href="#"></a> -->
+                         <!-- <div class="form-check form-switch mx-4 pt-2">
+                            <input class="form-check-input pt-2" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked 
+                            onclick="myFunction()"/>
+                         </div>
+                    </li> -->
                 </ul>
+                <!-- Theme Toggle Icons -->
+                <div class="d-flex align-items-center">
+                    <i id="themeToggle" class="bi bi-sun-fill fs-4 text-white" style="cursor: pointer;"></i>
+                </div>
             </div>
         </div>
      </nav>
+     <!-- Script for Light Dark Mode Toggle -->
+     <script>
+        //  function myFunction() {
+        //      var element = document.body;
+        //      element.dataset.bsTheme = 
+        //       element.dataset.bsTheme == 'dark' ? 'light' : 'dark';
+        //  }
+
+        const themeToggle = document.getElementById("themeToggle");
+        const body = document.body;
+
+        themeToggle.addEventListener("click", () => {
+            if (body.dataset.bsTheme === "dark") {
+                body.dataset.bsTheme = "light";
+                themeToggle.classList.remove("bi-sun-fill");
+                themeToggle.classList.add("bi-moon-stars-fill");
+        } else {
+                body.dataset.bsTheme = "dark";
+                themeToggle.classList.remove("bi-moon-stars-fill");
+                themeToggle.classList.add("bi-sun-fill");
+            }
+        });
+     </script>
 
      <!-- Home section  -->
       <section id="home" class="flex s-around sw-80 m-auto">
         <div class="home-left flext items-center">
             <div class="home-content container">
                 <div>
-                    <h2 class="popinss">Hi, I'm</h2>
+                    <h2 class="popinss pt-3">Hi, I'm</h2>
                 </div>
-                <h1 class="t-white text-info">Himanshu Mishra</h1>
-                <h2 class="popinss">Software Developer</h2>
-                <a href="{%static 'pdf/HimanshuResume.pdf'%}" target="_blank">
-                    <button class="btn">Download Resume</button>
-                </a>
-                <a class="btn live popinss" id="hireme" href="" target="_blank">
-                    <button class="btn">Let's Talk</button>
-                </a>
+                <h1 class="t-white text-info pt-2">Himanshu Mishra</h1>
+                <h2 class="popinss pt-2">Aspiring AI & Python Developer</h2>
+                <div class="pt-3">
+                    <a href="{%static 'pdf/HimanshuResume.pdf'%}" target="_blank">
+                        <button class="btn btn-primary" type="button">Download Resume</button>
+                    </a>
+                    <a class="btn live popinss" id="hireme" href="" target="_blank">
+                        <button class="btn btn-primary">Let's Talk</button>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -81,17 +111,26 @@
       </section>
 
       <!-- About section  -->
-       <section id="about">
-        <h1 class="t center my-2 t-white f-2">About Me<Menu></Menu></h1>
+       <section id="about" class="pt-4 mx-3">
+        <h1 class="t center my-2 t-white f-2 text-center">About Me<Menu></Menu></h1>
         <div class="about-container flex s-around">
             <div class="about-left flex s-center items-center">
-                <img src="{% static 'images/dog.jpg' %}">
+                <!-- <img src="{% static 'images/dog.jpg' %}"> -->
             </div>
         </div>
         <div class="about-right flex">
             <div class="about-content">
                 <h1 class="t-white m-b-1 popinss">Himanshu Mishra</h1>
-                <p class="t-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>
+                    I’m an MSc IT (AI) student with a BSc IT background, passionate about using Python and AI to solve real-world problems. I’m currently building expertise in Machine Learning, Data Analysis, and Deep Learning, with hands-on practice in tools like pandas, scikit-learn, and TensorFlow.
+
+                    In my final year of BSc, I developed a complete web application titled “Transport Module” using ASP.NET Core MVC and SQL Server, automating transport and logistics workflows. This experience gave me strong foundations in backend development, database design, and clean coding practices.
+                </p>
+                <p>
+                    I’m also exploring Generative AI with AWS, building projects that combine AI models with real-world applications. My learning journey includes working on DSA, RESTful APIs, and deploying models via Flask/Streamlit to the cloud.
+
+                    I’m committed to continuous learning and open to roles in AI/ML engineering, data science, Python development, or backend engineering. Let’s connect if you’re building something innovative with technology.
+                </p>
                 <a href="btn" id="hireme" href="">Hire Me</a>
 
             </div>
@@ -197,6 +236,7 @@
 
            </footer>
 
+           
            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
 </html>
