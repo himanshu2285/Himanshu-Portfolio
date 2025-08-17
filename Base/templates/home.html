@@ -111,31 +111,53 @@
       </section>
 
       <!-- About section  -->
-       <section id="about" class="pt-4 mx-3">
-        <h1 class="t center my-2 t-white f-2 text-center">About Me<Menu></Menu></h1>
-        <div class="about-container flex s-around">
-            <div class="about-left flex s-center items-center">
-                <!-- <img src="{% static 'images/dog.jpg' %}"> -->
+        <section id="about" class="py-2">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h1 class="text-center fw-bold display-4 mb-3">About Me</h1>
+                    </div>
+                </div>
+                
+                <div class="row align-items-center">
+                    <!-- Left side - Image -->
+                    <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+                        <div class="text-center">
+                            <img src="{% static 'images/AboutMe.jpg' %}" 
+                                alt="About Me Image" 
+                                class="img-fluid rounded-3 shadow-lg about-image">
+                        </div>
+                    </div>
+                    
+                    <!-- Right side - Text Content -->
+                    <div class="col-lg-7 col-md-6">
+                        <div class="about-content ps-lg-4">
+                            <h2 class="text-primary mb-3 fw-bold">Himanshu Mishra</h2>
+                            
+                            <p class="mb-3"> 
+                                I'm an MSc IT (AI) student with a BSc IT background, passionate about using Python and AI to solve real-world problems. I'm currently building expertise in Machine Learning, Data Analysis, and Deep Learning, with hands-on practice in tools like pandas, scikit-learn, and TensorFlow.
+                            </p>
+                            
+                            <p class="mb-3">
+                                In my final year of BSc, I developed a complete web application titled "Transport Module" using ASP.NET Core MVC and SQL Server, automating transport and logistics workflows. This experience gave me strong foundations in backend development, database design, and clean coding practices.
+                            </p>
+                            
+                            <p class="mb-3">
+                                I'm also exploring Generative AI with AWS, building projects that combine AI models with real-world applications. My learning journey includes working on DSA, RESTful APIs, and deploying models via Flask/Streamlit to the cloud.
+                            </p>
+                            
+                            <p class="mb-4">
+                                I'm committed to continuous learning and open to roles in AI/ML engineering, data science, Python development, or backend engineering. Let's connect if you're building something innovative with technology.
+                            </p>
+                            
+                            <a href="#contact" id="hireme" class="btn btn-primary btn-lg px-4 py-2">
+                                <i class="fas fa-handshake me-2"></i>Hire Me
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="about-right flex">
-            <div class="about-content">
-                <h1 class="t-white m-b-1 popinss">Himanshu Mishra</h1>
-                <p>
-                    I’m an MSc IT (AI) student with a BSc IT background, passionate about using Python and AI to solve real-world problems. I’m currently building expertise in Machine Learning, Data Analysis, and Deep Learning, with hands-on practice in tools like pandas, scikit-learn, and TensorFlow.
-
-                    In my final year of BSc, I developed a complete web application titled “Transport Module” using ASP.NET Core MVC and SQL Server, automating transport and logistics workflows. This experience gave me strong foundations in backend development, database design, and clean coding practices.
-                </p>
-                <p>
-                    I’m also exploring Generative AI with AWS, building projects that combine AI models with real-world applications. My learning journey includes working on DSA, RESTful APIs, and deploying models via Flask/Streamlit to the cloud.
-
-                    I’m committed to continuous learning and open to roles in AI/ML engineering, data science, Python development, or backend engineering. Let’s connect if you’re building something innovative with technology.
-                </p>
-                <a href="btn" id="hireme" href="">Hire Me</a>
-
-            </div>
-        </div>
-       </section>
+        </section>
 
        <!-- Skills section  -->
         <section id="skills">
