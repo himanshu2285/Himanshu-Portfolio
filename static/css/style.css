@@ -1,15 +1,227 @@
-h1{
-    color: blue;
-    
+/* About Section - Theme Compatible CSS */
+#about {
+    background: linear-gradient(135deg, 
+        var(--bs-body-bg) 0%, 
+        color-mix(in srgb, var(--bs-body-bg) 90%, var(--bs-primary) 10%) 50%, 
+        color-mix(in srgb, var(--bs-body-bg) 85%, var(--bs-primary) 15%) 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    padding: 4rem 0;
 }
 
-#profileImage {
-    display: block;
-    margin: 0 auto;
-    max-width: 20%;
+/* Dynamic background overlay based on theme */
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, color-mix(in srgb, var(--bs-primary) 15%, transparent) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--bs-warning) 10%, transparent) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, color-mix(in srgb, var(--bs-primary) 8%, transparent) 0%, transparent 50%);
+    pointer-events: none;
 }
-#skillsImage {
-    display: block;
-    margin: 0 auto;
-    max-width: 10%;
+
+/* About section title - theme compatible */
+#about h1 {
+    color: var(--bs-heading-color) !important;
+    text-shadow: 0 0 20px color-mix(in srgb, var(--bs-primary) 30%, transparent);
+    position: relative;
+    z-index: 2;
+}
+
+.about-image {
+    max-width: 350px;
+    height: auto;
+    border-radius: 15px !important;
+    border: 3px solid var(--bs-primary);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--bs-dark) 30%, transparent);
+}
+
+.about-image:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px color-mix(in srgb, var(--bs-primary) 25%, transparent) !important;
+    border-color: var(--bs-warning);
+}
+
+.about-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Name heading - theme compatible gradient */
+.about-content h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-warning));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (-webkit-background-clip: text) {
+    .about-content h2 {
+        color: var(--bs-primary);
+        -webkit-text-fill-color: unset;
+    }
+}
+
+/* Paragraph text - theme compatible */
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--bs-body-color) !important;
+    text-align: justify;
+    opacity: 0.9;
+}
+
+.about-content .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--bs-body-color) !important;
+    opacity: 1;
+}
+
+/* Hire Me button - theme compatible */
+#hireme {
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-warning)) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px color-mix(in srgb, var(--bs-primary) 40%, transparent);
+    position: relative;
+    overflow: hidden;
+}
+
+#hireme::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+#hireme:hover::before {
+    left: 100%;
+}
+
+#hireme:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--bs-primary) 50%, transparent);
+}
+
+/* Light theme specific adjustments */
+[data-bs-theme="light"] #about {
+    background: linear-gradient(135deg, 
+        #f8f9fa 0%, 
+        color-mix(in srgb, #f8f9fa 90%, var(--bs-primary) 10%) 50%, 
+        color-mix(in srgb, #f8f9fa 85%, var(--bs-primary) 15%) 100%);
+}
+
+[data-bs-theme="light"] #about::before {
+    background: 
+        radial-gradient(circle at 20% 50%, color-mix(in srgb, var(--bs-primary) 8%, transparent) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--bs-warning) 6%, transparent) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, color-mix(in srgb, var(--bs-primary) 5%, transparent) 0%, transparent 50%);
+}
+
+[data-bs-theme="light"] .about-image {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme="light"] .about-image:hover {
+    box-shadow: 0 20px 40px color-mix(in srgb, var(--bs-primary) 20%, transparent) !important;
+}
+
+[data-bs-theme="light"] #hireme {
+    box-shadow: 0 5px 15px color-mix(in srgb, var(--bs-primary) 25%, transparent);
+}
+
+[data-bs-theme="light"] #hireme:hover {
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--bs-primary) 35%, transparent);
+}
+
+/* Dark theme specific adjustments */
+[data-bs-theme="dark"] #about {
+    background: linear-gradient(135deg, 
+        #060606 0%, 
+        #0d1117 50%, 
+        #161b22 100%);
+}
+
+[data-bs-theme="dark"] #about h1 {
+    text-shadow: 0 0 20px color-mix(in srgb, var(--bs-primary) 50%, transparent);
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    .about-content {
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+    .about-content h2 {
+        font-size: 2rem;
+    }
+    
+    .about-image {
+        max-width: 300px;
+    }
+    
+    #about {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #about {
+        padding: 2rem 0;
+    }
+    
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-content p {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .about-image {
+        max-width: 280px;
+    }
+    
+    #about h1 {
+        font-size: 2rem !important;
+    }
+}
+
+/* Animation for smooth theme transitions */
+#about, .about-image, .about-content h2, .about-content p, #hireme {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced focus states for accessibility */
+#hireme:focus {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+}
+
+.about-image:focus {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 4px;
 }
