@@ -25,6 +25,280 @@
     pointer-events: none;
 }
 
+
+
+
+/* Home Section - Theme Compatible CSS */
+#home {
+    background: linear-gradient(135deg, 
+        var(--bs-body-bg) 0%, 
+        color-mix(in srgb, var(--bs-body-bg) 90%, var(--bs-primary) 10%) 50%, 
+        color-mix(in srgb, var(--bs-body-bg) 85%, var(--bs-primary) 15%) 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Dynamic background overlay based on theme */
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 80% 30%, color-mix(in srgb, var(--bs-primary) 15%, transparent) 0%, transparent 50%),
+        radial-gradient(circle at 20% 70%, color-mix(in srgb, var(--bs-warning) 10%, transparent) 0%, transparent 50%),
+        radial-gradient(circle at 60% 80%, color-mix(in srgb, var(--bs-primary) 8%, transparent) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.home-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Home section headings - theme compatible */
+.home-content h2 {
+    color: var(--bs-body-color) !important;
+    opacity: 0.9;
+}
+
+.home-content h1 {
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-info));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: none;
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (-webkit-background-clip: text) {
+    .home-content h1 {
+        color: var(--bs-primary) !important;
+        -webkit-text-fill-color: unset;
+    }
+}
+
+/* Typewriter text styling */
+.typewriter-container {
+    display: inline-block;
+    position: relative;
+    min-height: 1.5em;
+}
+
+.typewriter-text {
+    color: var(--bs-body-color) !important;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    background-color: var(--bs-primary);
+    margin-left: 2px;
+    width: 2px;
+    height: 1.5rem;
+    animation: typewriter-blink 1s infinite;
+    color: transparent;
+}
+
+@keyframes typewriter-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Home buttons styling */
+.home-content .btn {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-content .btn-primary {
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-warning)) !important;
+    border: none !important;
+    box-shadow: 0 5px 15px color-mix(in srgb, var(--bs-primary) 40%, transparent);
+}
+
+.home-content .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.home-content .btn-primary:hover::before {
+    left: 100%;
+}
+
+.home-content .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--bs-primary) 50%, transparent);
+}
+
+/* Home right side (for future image/animation) */
+.home-right {
+    position: relative;
+    z-index: 2;
+}
+
+.circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, 
+        color-mix(in srgb, var(--bs-primary) 20%, transparent),
+        color-mix(in srgb, var(--bs-warning) 15%, transparent)
+    );
+    border: 3px solid var(--bs-primary);
+    transition: all 0.4s ease;
+}
+
+.circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px color-mix(in srgb, var(--bs-primary) 30%, transparent);
+}
+
+/* Light theme specific adjustments */
+[data-bs-theme="light"] #home {
+    background: linear-gradient(135deg, 
+        #f8f9fa 0%, 
+        color-mix(in srgb, #f8f9fa 90%, var(--bs-primary) 10%) 50%, 
+        color-mix(in srgb, #f8f9fa 85%, var(--bs-primary) 15%) 100%);
+}
+
+[data-bs-theme="light"] #home::before {
+    background: 
+        radial-gradient(circle at 80% 30%, color-mix(in srgb, var(--bs-primary) 8%, transparent) 0%, transparent 50%),
+        radial-gradient(circle at 20% 70%, color-mix(in srgb, var(--bs-warning) 6%, transparent) 0%, transparent 50%),
+        radial-gradient(circle at 60% 80%, color-mix(in srgb, var(--bs-primary) 5%, transparent) 0%, transparent 50%);
+}
+
+[data-bs-theme="light"] .home-content .btn-primary {
+    box-shadow: 0 5px 15px color-mix(in srgb, var(--bs-primary) 25%, transparent);
+}
+
+[data-bs-theme="light"] .home-content .btn-primary:hover {
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--bs-primary) 35%, transparent);
+}
+
+[data-bs-theme="light"] .circle {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme specific adjustments */
+[data-bs-theme="dark"] #home {
+    background: linear-gradient(135deg, 
+        #060606 0%, 
+        #0d1117 50%, 
+        #161b22 100%);
+}
+
+[data-bs-theme="dark"] .typewriter-cursor {
+    background-color: var(--bs-info);
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    #home {
+        text-align: center;
+        padding: 3rem 1rem;
+    }
+    
+    .home-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .typewriter-text {
+        font-size: 1.3rem;
+    }
+    
+    .circle {
+        width: 250px;
+        height: 250px;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #home {
+        min-height: 90vh;
+        padding: 2rem 1rem;
+    }
+    
+    .home-content h1 {
+        font-size: 2rem;
+    }
+    
+    .home-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .typewriter-text {
+        font-size: 1.1rem;
+    }
+    
+    .typewriter-cursor {
+        height: 1.1rem;
+    }
+    
+    .circle {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .home-content .btn {
+        padding: 0.6rem 1.5rem;
+        margin: 0.3rem 0.3rem 0.3rem 0;
+        font-size: 0.9rem;
+    }
+}
+
+/* Smooth transitions for theme changes */
+#home, .home-content h1, .home-content h2, .typewriter-text, .home-content .btn, .circle {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced focus states for accessibility */
+.home-content .btn:focus {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+}
+
+/* Custom utility classes compatibility */
+.flex { display: flex; }
+.s-around { justify-content: space-around; }
+.s-center { justify-content: center; }
+.items-center { align-items: center; }
+.item-center { align-items: center; }
+.sw-80 { width: 80%; }
+.m-auto { margin: auto; }
+.pt-2 { padding-top: 0.5rem; }
+.pt-3 { padding-top: 1rem; }
+
+
+
+
+
 /* About section title - theme compatible */
 #about h1 {
     color: var(--bs-heading-color) !important;
@@ -224,4 +498,91 @@
 .about-image:focus {
     outline: 2px solid var(--bs-primary);
     outline-offset: 4px;
+}
+
+
+
+
+
+/* Typewriter Animation Styles */
+.typewriter-container {
+    display: inline-block;
+    position: relative;
+    min-height: 1.2em; /* Prevent layout jumping */
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    background-color: var(--bs-primary);
+    margin-left: 2px;
+    width: 2px;
+    animation: typewriter-blink 1s infinite;
+    color: transparent;
+}
+
+/* Light theme cursor */
+[data-bs-theme="light"] .typewriter-cursor {
+    background-color: var(--bs-primary);
+}
+
+/* Dark theme cursor */
+[data-bs-theme="dark"] .typewriter-cursor {
+    background-color: var(--bs-info);
+}
+
+@keyframes typewriter-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Home section specific styles */
+.home-content {
+    position: relative;
+}
+
+.home-content .typewriter-text {
+    color: var(--bs-body-color);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+/* Gradient text effect for typewriter (optional enhancement) */
+.home-content .typewriter-text.gradient {
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-info), var(--bs-warning));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (-webkit-background-clip: text) {
+    .home-content .typewriter-text.gradient {
+        color: var(--bs-primary);
+        -webkit-text-fill-color: unset;
+        animation: none;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .typewriter-container {
+        min-height: 1.5em;
+    }
+    
+    .home-content .typewriter-text {
+        font-size: 1.1rem;
+    }
+    
+    .typewriter-cursor {
+        width: 1.5px;
+    }
 }
