@@ -797,18 +797,17 @@
             <h1 class="t-center my-2 t-white f-2">Contact Me</h1>
             <div class="contact-container flex s-around item-center">
                 <div class="form" id="contactform">
-                    <form action="#" method="POST" class="contact-form">
+                    <form method="POST" class="contact-form">
                         {% csrf_token %}
                         <div class="name form-div">
                             <input type="text" name="name" id="name" class="popinss" placeholder="Enter Your Name" required>
                         </div>
                         <div class="email form-div">
-                            <input type="email" name="email" id="" class="popinss" placeholder="Enter Your Email" required>
+                            <input type="email" name="email" id="email" class="popinss" placeholder="Enter Your Email" required>
                         </div>
                         <div class="phone form-div">
-                            <input type="phone" name="phone" id="" class="popinss" placeholder="Enter Your Phone Number" required>
+                            <input type="phone" name="phone" id="phone" class="popinss" placeholder="Enter Your Phone Number" required>
                         </div>
-
                         <div class="textarea form-div">
                             <textarea name="content" id="textarea" cols="30" rows="10" class="popinss" placeholder="Enter Your Message"></textarea>
                         </div>
@@ -830,6 +829,7 @@
                 <li><a href="#skills" class="popinss">Skills</a></li>
                 <li><a href="#projects" class="popinss">Projects</a></li>
                 <li><a href="#Contact" class="popinss">Contact</a></li>
+                <li><a href="#portfolio" class="Portfolio">Home</a></li> 
             </ul>
 
             <ul class="flex s-center w-80 font-awesome">

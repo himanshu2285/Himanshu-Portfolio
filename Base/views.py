@@ -1,17 +1,16 @@
 from pyexpat.errors import messages
 from django.shortcuts import render
 from django.http import HttpResponse
-
 from Base import models
 from Base.models import Contact
 
 #create your view here
 
-# def home(request):
-#     return render(request, 'home.html')
+def home(request):
+    return render(request, 'home.html')
 
 def contact(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         print('post')
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -27,7 +26,7 @@ def contact(request):
         
         if len(email)>1 and len(email)<30:
             pass
-        else:
+        else: 
             messages.error(request, 'Invalid email try again')
             return render(request, 'home.html')
 
