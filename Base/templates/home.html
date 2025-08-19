@@ -2,132 +2,408 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'ReactBits/TextType.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'ReactBits/TextType.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
 
-</head>
-<body data-bs-theme="dark">
-    <!-- navbar section -->
-     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-        <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <style>
+            /* Skills Section Styles */
+        #skills {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(108, 117, 125, 0.1) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home
-                            <span class="visually-hidden">(current)</span>
-                            <i class="bi bi-house-fill"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#about">About<i class="bi bi-person-fill"></i></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#skills">Skills<i class="bi bi-code-slash"></i></a>
-                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#projects">Projects<i class="bi bi-git"></i></a>   
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#Contact">Contact<i class="bi bi-rocket-fill"></i></a>
-                    </li>
-                    <!-- <li class="nav-item"> -->
-                        <!-- <a class="nav-link active" href="#"></a> -->
-                         <!-- <div class="form-check form-switch mx-4 pt-2">
-                            <input class="form-check-input pt-2" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked 
-                            onclick="myFunction()"/>
-                         </div>
-                    </li> -->
-                </ul>
-                <!-- Theme Toggle Icons -->
-                <div class="d-flex align-items-center">
-                    <i id="themeToggle" class="bi bi-sun-fill fs-4 text-white" style="cursor: pointer;"></i>
-                </div>
-            </div>
-        </div>
-     </nav>
-     <!-- Script for Light Dark Mode Toggle -->
-     <script>
-        //  function myFunction() {
-        //      var element = document.body;
-        //      element.dataset.bsTheme = 
-        //       element.dataset.bsTheme == 'dark' ? 'light' : 'dark';
-        //  }
+        #skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
 
-        const themeToggle = document.getElementById("themeToggle");
-        const body = document.body;
+        .skills-container {
+            position: relative;
+            z-index: 2;
+        }
 
-        themeToggle.addEventListener("click", () => {
-            if (body.dataset.bsTheme === "dark") {
-                body.dataset.bsTheme = "light";
-                themeToggle.classList.remove("bi-sun-fill");
-                themeToggle.classList.add("bi-moon-stars-fill");
-        } else {
-                body.dataset.bsTheme = "dark";
-                themeToggle.classList.remove("bi-moon-stars-fill");
-                themeToggle.classList.add("bi-sun-fill");
+        .skills-category {
+            background: rgba(13, 110, 253, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(13, 110, 253, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .skills-category:hover::before {
+            left: 100%;
+        }
+
+        .skills-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(13, 110, 253, 0.4);
+            box-shadow: 0 20px 40px rgba(13, 110, 253, 0.2);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #0d6efd, #6610f2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .skills-category:hover .category-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #0d6efd, #6610f2, #0d6efd);
+            background-size: 200% 100%;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .skill-item:hover::before {
+            transform: scaleX(1);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(13, 110, 253, 0.4);
+            background: rgba(13, 110, 253, 0.1);
+            box-shadow: 
+                0 10px 30px rgba(13, 110, 253, 0.2),
+                0 0 20px rgba(13, 110, 253, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #0d6efd, #6610f2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-item:hover .skill-icon {
+            transform: scale(1.2) rotate(10deg);
+            filter: brightness(1.2);
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .skill-item:hover .skill-name {
+            color: #0d6efd;
+        }
+
+        .skill-level {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #0d6efd, #6610f2);
+            border-radius: 2px;
+            transition: width 0.8s ease-in-out;
+            transform-origin: left;
+        }
+
+        .skill-item:hover .skill-progress {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 0.8rem;
             }
-        });
-     </script>
+            
+            .skill-item {
+                padding: 1rem 0.5rem;
+            }
+            
+            .skill-icon {
+                font-size: 2rem;
+            }
+            
+            .category-title {
+                font-size: 1.2rem;
+            }
+        }
 
-     <!-- Home section  -->
-    <section id="home">
-        <div class="container">
-            <div class="row align-items-center min-vh-90">
-                <!-- Left side - Content -->
-                <div class="col-lg-7 col-md-6">
-                    <div class="home-content">
-                        <h2 class="mb-2">Hi, I'm</h2>
-                        <h1 class="mb-3">Himanshu Mishra</h1>
-                        
-                        <!-- Typewriter Animation Container -->
-                        <div class="mb-4">
-                            <h2 class="typewriter-container">
-                                <span id="typewriter-text" class="typewriter-text"></span>
-                            </h2>
-                        </div>
-                        
-                        <div class="pt-3">                             
-                            <a href="{%static 'pdf/HimanshuResume.pdf'%}" target="_blank">                                 
-                                <button class="btn btn-primary" type="button">
-                                    <i class="bi bi-download me-2"></i>Download Resume
-                                </button>                                  
-                            </a>                             
-                            <a href="https://www.linkedin.com/in/himanshu-mishra022" target="_blank">                                 
-                                <button class="btn btn-primary ms-2" type="button">
-                                    <i class="bi bi-linkedin me-2"></i>Let's Connect
-                                </button>                                  
-                            </a>                         
-                        </div>
+        /* Dark/Light Theme Compatibility */
+        [data-bs-theme="light"] .skills-category {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(13, 110, 253, 0.2);
+        }
+
+        [data-bs-theme="light"] .category-title {
+            color: #333;
+        }
+
+        [data-bs-theme="light"] .skill-item {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-bs-theme="light"] .skill-name {
+            color: #333;
+        }
+
+        [data-bs-theme="light"] .skill-item:hover .skill-name {
+            color: #0d6efd;
+        }
+
+        /* Interactive Ripple Effect */
+        .skill-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(13, 110, 253, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        </style>
+    </head>
+    <body data-bs-theme="dark">
+        <!-- navbar section -->
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home
+                                <span class="visually-hidden">(current)</span>
+                                <i class="bi bi-house-fill"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#about">About<i class="bi bi-person-fill"></i></a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" href="#skills">Skills<i class="bi bi-code-slash"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#projects">Projects<i class="bi bi-git"></i></a>   
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#Contact">Contact<i class="bi bi-rocket-fill"></i></a>
+                        </li>
+                        <!-- <li class="nav-item"> -->
+                            <!-- <a class="nav-link active" href="#"></a> -->
+                            <!-- <div class="form-check form-switch mx-4 pt-2">
+                                <input class="form-check-input pt-2" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked 
+                                onclick="myFunction()"/>
+                            </div>
+                        </li> -->
+                    </ul>
+                    <!-- Theme Toggle Icons -->
+                    <div class="d-flex align-items-center">
+                        <i id="themeToggle" class="bi bi-sun-fill fs-4 text-white" style="cursor: pointer;"></i>
                     </div>
                 </div>
+            </div>
+        </nav>
+        <!-- Script for Light Dark Mode Toggle -->
+        <script>
+            //  function myFunction() {
+            //      var element = document.body;
+            //      element.dataset.bsTheme = 
+            //       element.dataset.bsTheme == 'dark' ? 'light' : 'dark';
+            //  }
 
-                <!-- Right side - Visual Element -->
-                <div class="col-lg-5 col-md-6 text-center">
-                    <div class="home-right">
-                        <div class="circle d-flex align-items-center justify-content-center" id="mainImage">
-                            <!-- You can add an image or animation here -->
-                            <i class="bi bi-code-slash" style="font-size: 4rem; color: var(--bs-primary);"></i>
+            const themeToggle = document.getElementById("themeToggle");
+            const body = document.body;
+
+            themeToggle.addEventListener("click", () => {
+                if (body.dataset.bsTheme === "dark") {
+                    body.dataset.bsTheme = "light";
+                    themeToggle.classList.remove("bi-sun-fill");
+                    themeToggle.classList.add("bi-moon-stars-fill");
+            } else {
+                    body.dataset.bsTheme = "dark";
+                    themeToggle.classList.remove("bi-moon-stars-fill");
+                    themeToggle.classList.add("bi-sun-fill");
+                }
+            });
+        </script>
+
+        <!-- Home section  -->
+        <section id="home">
+            <div class="container">
+                <div class="row align-items-center min-vh-90">
+                    <!-- Left side - Content -->
+                    <div class="col-lg-7 col-md-6">
+                        <div class="home-content">
+                            <h2 class="mb-2">Hi, I'm</h2>
+                            <h1 class="mb-3">Himanshu Mishra</h1>
+                            
+                            <!-- Typewriter Animation Container -->
+                            <div class="mb-4">
+                                <h2 class="typewriter-container">
+                                    <span id="typewriter-text" class="typewriter-text"></span>
+                                </h2>
+                            </div>
+                            
+                            <div class="pt-3">                             
+                                <a href="{%static 'pdf/HimanshuResume.pdf'%}" target="_blank">                                 
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="bi bi-download me-2"></i>Download Resume
+                                    </button>                                  
+                                </a>                             
+                                <a href="https://www.linkedin.com/in/himanshu-mishra022" target="_blank">                                 
+                                    <button class="btn btn-primary ms-2" type="button">
+                                        <i class="bi bi-linkedin me-2"></i>Let's Connect
+                                    </button>                                  
+                                </a>                         
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right side - Visual Element -->
+                    <div class="col-lg-5 col-md-6 text-center">
+                        <div class="home-right">
+                            <div class="circle d-flex align-items-center justify-content-center" id="mainImage">
+                                <!-- You can add an image or animation here -->
+                                <i class="bi bi-code-slash" style="font-size: 4rem; color: var(--bs-primary);"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
       <!-- About section  -->
         <section id="about" class="py-5">
@@ -211,26 +487,216 @@
         </section>
 
        <!-- Skills section  -->
-        <section id="skills">
+        <!-- <section id="skills">
             <h1 class="t center my-2 t-white f-2">Skills</h1>
             <div class="services-container flex s-around h-50">
-                <div class="skills-left flex s-center item-center">
-                    <!-- <img id="skillsImage" src="{% static 'images/skills.jpg' %}" alt="Skills Image"> -->
-                </div>
                 <div class="skills-right flex item-center">
                     <div class="skills-container">
-                        <div class="java bar p-relative"><span class="bar-content left t-white">Core Java</span>
-                        <span class="bar-content right-skills t-white">90%</span></div>
-                        <div class="python bar p-relative"><span class="bar-content left t-white">Python</span>
-                        <span class="bar-content right-skills t-white">90%</span></div>
-                        <div class="MySql bar p-relative"><span class="bar-content left t-white">MySQL</span>
-                        <span class="bar-content right-skills t-white">90%</span></div>
-                        <div class="AI/ML bar p-relative"><span class="bar-content left t-white">AI/ML</span>
-                        <span class="bar-content right-skills t-white">90%</span></div>
+                        
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
+        <section id="skills" class="py-5">
+            <div class="container skills-container">
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h1 class="text-center fw-bold display-4 mb-4 text-white">Skills</h1>
+                        <p class="text-center text-white-50 lead">Technologies and tools I work with</p>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="skills-category floating" style="animation-delay: 0.1s;">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <h3 class="category-title">Technical Skills</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="Python" data-level="90">
+                            <i class="bi bi-filetype-py skill-icon"></i>
+                            <div class="skill-name">Python</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Java" data-level="75">
+                            <i class="bi bi-cup-hot skill-icon"></i>
+                            <div class="skill-name">Java</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="SQL" data-level="85">
+                            <i class="bi bi-database skill-icon"></i>
+                            <div class="skill-name">SQL (MySQL)</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="DSA" data-level="80">
+                            <i class="bi bi-diagram-3 skill-icon"></i>
+                            <div class="skill-name">DSA</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks -->
+                <div class="skills-category floating" style="animation-delay: 0.2s;">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="bi bi-layers"></i>
+                        </div>
+                        <h3 class="category-title">Frameworks</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="FastAPI" data-level="85">
+                            <i class="bi bi-lightning skill-icon"></i>
+                            <div class="skill-name">FastAPI</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Flask" data-level="80">
+                            <i class="bi bi-flask skill-icon"></i>
+                            <div class="skill-name">Flask</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="React" data-level="70">
+                            <i class="bi bi-arrow-repeat skill-icon"></i>
+                            <div class="skill-name">React</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Django" data-level="75">
+                            <i class="bi bi-gear skill-icon"></i>
+                            <div class="skill-name">Django</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Developer Tools -->
+                <div class="skills-category floating" style="animation-delay: 0.3s;">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h3 class="category-title">Developer Tools</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="Git" data-level="85">
+                            <i class="bi bi-git skill-icon"></i>
+                            <div class="skill-name">Git</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Docker" data-level="75">
+                            <i class="bi bi-box skill-icon"></i>
+                            <div class="skill-name">Docker</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Streamlit" data-level="80">
+                            <i class="bi bi-speedometer2 skill-icon"></i>
+                            <div class="skill-name">Streamlit</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="AWS" data-level="70">
+                            <i class="bi bi-cloud skill-icon"></i>
+                            <div class="skill-name">AWS</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Libraries -->
+                <div class="skills-category floating" style="animation-delay: 0.4s;">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="bi bi-collection"></i>
+                        </div>
+                        <h3 class="category-title">Libraries</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="pandas" data-level="90">
+                            <i class="bi bi-table skill-icon"></i>
+                            <div class="skill-name">pandas</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="NumPy" data-level="85">
+                            <i class="bi bi-calculator skill-icon"></i>
+                            <div class="skill-name">NumPy</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="TensorFlow" data-level="80">
+                            <i class="bi bi-cpu skill-icon"></i>
+                            <div class="skill-name">TensorFlow</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Scikit-Learn" data-level="85">
+                            <i class="bi bi-graph-up skill-icon"></i>
+                            <div class="skill-name">Scikit-Learn</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="OpenCV" data-level="75">
+                            <i class="bi bi-eye skill-icon"></i>
+                            <div class="skill-name">OpenCV</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="SciPy" data-level="70">
+                            <i class="bi bi-activity skill-icon"></i>
+                            <div class="skill-name">SciPy</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Matplotlib" data-level="85">
+                            <i class="bi bi-bar-chart skill-icon"></i>
+                            <div class="skill-name">Matplotlib</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Pillow" data-level="75">
+                            <i class="bi bi-image skill-icon"></i>
+                            <div class="skill-name">Pillow</div>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+
 
         <!-- Project section  -->
          <section id="projects">
@@ -438,7 +904,125 @@
                     });
                 }
             </script>
-            <script src="{% static 'ReactBits/TextType.jsx' %}"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+            
+        <!-- Skills Section Script -->
+            <script>
+                // Interactive ripple effect
+                document.querySelectorAll('.skill-item').forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        const ripple = document.createElement('span');
+                        const rect = this.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        const x = e.clientX - rect.left - size / 2;
+                        const y = e.clientY - rect.top - size / 2;
+                        
+                        ripple.style.width = ripple.style.height = size + 'px';
+                        ripple.style.left = x + 'px';
+                        ripple.style.top = y + 'px';
+                        ripple.classList.add('ripple');
+                        
+                        this.appendChild(ripple);
+                    
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 600);
+                    });
+                });
+
+                // Animate progress bars on scroll
+                const observerOptions = {
+                    threshold: 0.3,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const progressObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const progressBars = entry.target.querySelectorAll('.skill-progress');
+                            progressBars.forEach((bar, index) => {
+                                setTimeout(() => {
+                                    bar.style.width = bar.style.width || '0%';
+                                }, index * 100);
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.skills-category').forEach(category => {
+                    progressObserver.observe(category);
+                });
+
+                // Add hover tooltip with skill level
+                document.querySelectorAll('.skill-item').forEach(item => {
+                    const skillName = item.dataset.skill;
+                    const skillLevel = item.dataset.level;
+            
+                    item.addEventListener('mouseenter', function(e) {
+                        const tooltip = document.createElement('div');
+                        tooltip.innerHTML = `${skillName}: ${skillLevel}%`;
+                        tooltip.style.cssText = `
+                            position: absolute;
+                            background: rgba(13, 110, 253, 0.9);
+                            color: white;
+                            padding: 0.5rem 1rem;
+                            border-radius: 6px;
+                            font-size: 0.9rem;
+                            pointer-events: none;
+                            z-index: 1000;
+                            white-space: nowrap;
+                            transform: translateX(-50%);
+                            top: -40px;
+                            left: 50%;
+                        `;
+                        tooltip.classList.add('skill-tooltip');
+                        this.appendChild(tooltip);
+                    });
+            
+                    item.addEventListener('mouseleave', function() {
+                        const tooltip = this.querySelector('.skill-tooltip');
+                        if (tooltip) tooltip.remove();
+                    });
+                });
+
+                // Stagger animation on page load
+                window.addEventListener('load', () => {
+                    const categories = document.querySelectorAll('.skills-category');
+                    categories.forEach((category, index) => {
+                        setTimeout(() => {
+                            category.style.opacity = '0';
+                            category.style.transform = 'translateY(50px)';
+                            category.style.transition = 'all 0.6s ease';
+                            
+                            setTimeout(() => {
+                                category.style.opacity = '1';
+                                category.style.transform = 'translateY(0)';
+                            }, 100);
+                        }, index * 200);
+                    });
+                });
+
+                // Theme toggle compatibility
+                function updateTheme() {
+                    const theme = document.documentElement.getAttribute('data-bs-theme') || 'dark';
+                    document.body.setAttribute('data-bs-theme', theme);
+                }
+
+                // Watch for theme changes
+                const themeObserver = new MutationObserver(() => {
+                    updateTheme();
+                });
+
+                themeObserver.observe(document.documentElement, {
+                    attributes: true,
+                    attributeFilter: ['data-bs-theme']
+                });
+
+                // Initialize theme
+                updateTheme();
+            </script>
+
+        <script src="{% static 'ReactBits/TextType.jsx' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
