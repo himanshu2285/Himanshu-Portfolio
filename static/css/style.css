@@ -1207,3 +1207,313 @@
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
 }
+
+
+
+
+
+/* Footer section style  */
+/* Footer Section Styles - Add to your style.css */
+
+/* Fixed Footer Section Styles - Replace your footer CSS with this */
+
+#footer {
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(108, 117, 125, 0.1) 100%);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(13, 110, 253, 0.2);
+    padding: 3rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(13, 110, 253, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(102, 16, 242, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Navigation Links - Fixed vibration issue */
+#footer ul.flex {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#footer ul.flex li {
+    position: relative;
+    flex-shrink: 0; /* Prevents shrinking during hover */
+}
+
+#footer ul.flex a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    min-width: fit-content;
+    box-sizing: border-box;
+    /* Fix for vibration - ensure consistent dimensions */
+    border: 1px solid transparent;
+}
+
+#footer ul.flex a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+#footer ul.flex a:hover::before {
+    left: 100%;
+}
+
+#footer ul.flex a:hover {
+    color: #fff;
+    background: rgba(13, 110, 253, 0.1);
+    border: 1px solid rgba(13, 110, 253, 0.3);
+    /* Remove transform that causes vibration */
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
+}
+
+/* Social Media Icons - Fixed layout and positioning */
+#footer ul.font-awesome {
+    margin: 2rem 0;
+    gap: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#footer ul.font-awesome li {
+    flex-shrink: 0;
+}
+
+#footer ul.font-awesome a {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+#footer ul.font-awesome a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: linear-gradient(45deg, #0d6efd, #6610f2);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+#footer ul.font-awesome a:hover::before {
+    width: 60px;
+    height: 60px;
+}
+
+#footer ul.font-awesome a:hover {
+    /* Reduced transform to prevent layout shift */
+    transform: translateY(-3px) scale(1.05);
+    border-color: rgba(13, 110, 253, 0.4);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+}
+
+#footer ul.font-awesome i {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+#footer ul.font-awesome a:hover i {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Platform specific colors */
+#footer ul.font-awesome a[href*="linkedin"]:hover {
+    box-shadow: 0 8px 20px rgba(0, 119, 181, 0.3);
+}
+
+#footer ul.font-awesome a[href*="linkedin"]:hover::before {
+    background: linear-gradient(45deg, #0077b5, #005885);
+}
+
+#footer ul.font-awesome a[href*="github"]:hover {
+    box-shadow: 0 8px 20px rgba(51, 51, 51, 0.3);
+}
+
+#footer ul.font-awesome a[href*="github"]:hover::before {
+    background: linear-gradient(45deg, #333, #24292e);
+}
+
+#footer ul.font-awesome a[href*="instagram"]:hover {
+    box-shadow: 0 8px 20px rgba(225, 48, 108, 0.3);
+}
+
+#footer ul.font-awesome a[href*="instagram"]:hover::before {
+    background: linear-gradient(45deg, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80);
+}
+
+/* Copyright Text */
+#footer p {
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin: 1.5rem 0 0;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+}
+
+#footer p span.cpy-white {
+    color: #fff;
+    font-weight: 600;
+    background: linear-gradient(45deg, #0d6efd, #6610f2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #footer {
+        padding: 2rem 0 1.5rem;
+    }
+    
+    #footer ul.flex {
+        gap: 1rem;
+    }
+    
+    #footer ul.flex a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    #footer ul.font-awesome {
+        gap: 1rem;
+    }
+    
+    #footer ul.font-awesome a {
+        width: 45px;
+        height: 45px;
+    }
+    
+    #footer ul.font-awesome i {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    #footer ul.flex {
+        gap: 0.5rem;
+        justify-content: center;
+    }
+    
+    #footer ul.flex a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+    }
+    
+    #footer ul.font-awesome a {
+        width: 40px;
+        height: 40px;
+    }
+    
+    #footer ul.font-awesome i {
+        font-size: 1rem;
+    }
+    
+    #footer p {
+        font-size: 0.8rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Dark/Light Theme Compatibility */
+[data-bs-theme="light"] #footer {
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.05) 0%, rgba(108, 117, 125, 0.05) 100%);
+    border-top-color: rgba(13, 110, 253, 0.1);
+}
+
+[data-bs-theme="light"] #footer ul.flex a {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+[data-bs-theme="light"] #footer ul.flex a:hover {
+    color: #0d6efd;
+    background: rgba(13, 110, 253, 0.1);
+}
+
+[data-bs-theme="light"] #footer ul.font-awesome a {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme="light"] #footer ul.font-awesome i {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+[data-bs-theme="light"] #footer ul.font-awesome a:hover i {
+    color: #fff;
+}
+
+[data-bs-theme="light"] #footer p {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+[data-bs-theme="light"] #footer p span.cpy-white {
+    color: #0d6efd;
+}
+
+/* Animation for social icons on page load */
+#footer ul.font-awesome a {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#footer ul.font-awesome a:nth-child(1) { animation-delay: 0.1s; }
+#footer ul.font-awesome a:nth-child(2) { animation-delay: 0.2s; }
+#footer ul.font-awesome a:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
