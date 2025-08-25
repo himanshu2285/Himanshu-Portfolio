@@ -590,8 +590,10 @@
 
 
 
+
+
 /* Projects Section Styles */
-/* #projects {
+#projects {
   background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(108, 117, 125, 0.1) 100%);
   min-height: 100vh;
   position: relative;
@@ -682,7 +684,7 @@
 
 [data-bs-theme="light"] .project-desc {
   color: #555;
-} */
+}
 
 
 /* Projects Section Styles */
@@ -1207,7 +1209,6 @@
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
 }
-
 
 
 

@@ -8,6 +8,7 @@
         <title>Portfolio</title>
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
         <link rel="stylesheet" href="{% static 'ReactBits/TextType.css' %}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -16,8 +17,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
         <style>
-            /* Skills Section Styles */
-            #skills {
+                        #skills {
                 background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(108, 117, 125, 0.1) 100%);
                 min-height: 100vh;
                 display: flex;
@@ -288,13 +288,11 @@
                     opacity: 0;
                 }
             }
-            </style>
+        </style>
 
-
-
-            <!-- style contact section  -->
-            <style>
-            :root {
+        <!-- Contact section Styling -->
+        <style>
+        :root {
                 /* Light theme variables */
                 --bg-primary: #f8f9fa;
                 --bg-secondary: #ffffff;
@@ -606,7 +604,7 @@
                     margin-bottom: 20px;
                 }
             }
-        </style>
+        </style
     </head>
 
 
@@ -643,10 +641,11 @@
                             <a class="nav-link active" href="#Contact">Contact<i class="bi bi-rocket-fill"></i></a>
                         </li>
                     </ul>
-                    <!-- Theme Toggle Icons -->
+                    <!-- Theme Toggle Icons 
                     <div class="d-flex align-items-center">
                         <i id="themeToggle" class="bi bi-sun-fill fs-4 text-white" style="cursor: pointer;"></i>
                     </div>
+                    --!>
                 </div>
             </div>
         </nav>
@@ -1449,35 +1448,35 @@
 
             <!-- Contact form Script  -->
              <script>
-                function toggleTheme() {
-                    const body = document.body;
-                    const themeToggle = document.querySelector('.theme-toggle');
-                    const currentTheme = body.getAttribute('data-theme');
+                // function toggleTheme() {
+                //     const body = document.body;
+                //     const themeToggle = document.querySelector('.theme-toggle');
+                //     const currentTheme = body.getAttribute('data-theme');
                     
-                    if (currentTheme === 'light') {
-                        body.setAttribute('data-theme', 'dark');
-                        themeToggle.innerHTML = '☀️ Light Mode';
-                        localStorage.setItem('theme', 'dark');
-                    } else {
-                        body.setAttribute('data-theme', 'light');
-                        themeToggle.innerHTML = '🌙 Dark Mode';
-                        localStorage.setItem('theme', 'light');
-                    }
-                }
+                //     if (currentTheme === 'light') {
+                //         body.setAttribute('data-theme', 'dark');
+                //         themeToggle.innerHTML = '☀️ Light Mode';
+                //         localStorage.setItem('theme', 'dark');
+                //     } else {
+                //         body.setAttribute('data-theme', 'light');
+                //         themeToggle.innerHTML = '🌙 Dark Mode';
+                //         localStorage.setItem('theme', 'light');
+                //     }
+                // }
 
                 // Load saved theme
-                document.addEventListener('DOMContentLoaded', function() {
-                    const savedTheme = localStorage.getItem('theme') || 'light';
-                    const body = document.body;
-                    const themeToggle = document.querySelector('.theme-toggle');
+                // document.addEventListener('DOMContentLoaded', function() {
+                //     const savedTheme = localStorage.getItem('theme') || 'light';
+                //     const body = document.body;
+                //     const themeToggle = document.querySelector('.theme-toggle');
                     
-                    body.setAttribute('data-theme', savedTheme);
-                    if (savedTheme === 'dark') {
-                        themeToggle.innerHTML = '☀️ Light Mode';
-                    } else {
-                        themeToggle.innerHTML = '🌙 Dark Mode';
-                    }
-                });
+                //     body.setAttribute('data-theme', savedTheme);
+                //     if (savedTheme === 'dark') {
+                //         themeToggle.innerHTML = '☀️ Light Mode';
+                //     } else {
+                //         themeToggle.innerHTML = '🌙 Dark Mode';
+                //     }
+                // });
 
                 // Form submission animation
                 document.getElementById('contactForm').addEventListener('submit', function() {
@@ -1501,3 +1500,4 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
