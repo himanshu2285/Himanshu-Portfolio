@@ -15,279 +15,6 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        <style>
-                        #skills {
-                background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(108, 117, 125, 0.1) 100%);
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                position: relative;
-                overflow: hidden;
-            }
-
-            #skills::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: 
-                    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.1) 0%, transparent 50%);
-                pointer-events: none;
-            }
-
-            .skills-container {
-                position: relative;
-                z-index: 2;
-            }
-
-            .skills-category {
-                background: rgba(13, 110, 253, 0.1);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(13, 110, 253, 0.2);
-                border-radius: 20px;
-                padding: 2rem;
-                margin-bottom: 2rem;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                position: relative;
-                overflow: hidden;
-            }
-
-            .skills-category::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.1), transparent);
-                transition: left 0.6s;
-            }
-
-            .skills-category:hover::before {
-                left: 100%;
-            }
-
-            .skills-category:hover {
-                transform: translateY(-5px);
-                border-color: rgba(13, 110, 253, 0.4);
-                box-shadow: 0 20px 40px rgba(13, 110, 253, 0.2);
-            }
-
-            .category-header {
-                display: flex;
-                align-items: center;
-                margin-bottom: 1.5rem;
-                position: relative;
-                z-index: 1;
-            }
-
-            .category-icon {
-                width: 50px;
-                height: 50px;
-                background: linear-gradient(45deg, #0d6efd, #6610f2);
-                border-radius: 12px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-right: 1rem;
-                font-size: 1.5rem;
-                color: white;
-                transition: all 0.3s ease;
-            }
-
-            .skills-category:hover .category-icon {
-                transform: scale(1.1) rotate(5deg);
-            }
-
-            .category-title {
-                font-size: 1.5rem;
-                font-weight: 700;
-                color: #fff;
-                margin: 0;
-            }
-
-            .skills-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
-            }
-
-            .skill-item {
-                background: rgba(255, 255, 255, 0.05);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: 15px;
-                padding: 1.5rem 1rem;
-                text-align: center;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                position: relative;
-                overflow: hidden;
-                cursor: pointer;
-            }
-
-            .skill-item::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 3px;
-                background: linear-gradient(90deg, #0d6efd, #6610f2, #0d6efd);
-                background-size: 200% 100%;
-                transform: scaleX(0);
-                transition: transform 0.3s ease;
-                transform-origin: left;
-            }
-
-            .skill-item:hover::before {
-                transform: scaleX(1);
-                animation: shimmer 2s infinite;
-            }
-
-            @keyframes shimmer {
-                0% { background-position: -200% 0; }
-                100% { background-position: 200% 0; }
-            }
-
-            .skill-item:hover {
-                transform: translateY(-5px) scale(1.02);
-                border-color: rgba(13, 110, 253, 0.4);
-                background: rgba(13, 110, 253, 0.1);
-                box-shadow: 
-                    0 10px 30px rgba(13, 110, 253, 0.2),
-                    0 0 20px rgba(13, 110, 253, 0.1);
-            }
-
-            .skill-icon {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-                display: block;
-                transition: all 0.3s ease;
-                background: linear-gradient(45deg, #0d6efd, #6610f2);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-
-            .skill-item:hover .skill-icon {
-                transform: scale(1.2) rotate(10deg);
-                filter: brightness(1.2);
-            }
-
-            .skill-name {
-                font-size: 1.1rem;
-                font-weight: 600;
-                color: #fff;
-                margin-bottom: 0.5rem;
-                transition: color 0.3s ease;
-            }
-
-            .skill-item:hover .skill-name {
-                color: #0d6efd;
-            }
-
-            .skill-level {
-                height: 4px;
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 2px;
-                overflow: hidden;
-                margin-top: 0.5rem;
-            }
-
-            .skill-progress {
-                height: 100%;
-                background: linear-gradient(90deg, #0d6efd, #6610f2);
-                border-radius: 2px;
-                transition: width 0.8s ease-in-out;
-                transform-origin: left;
-            }
-
-            .skill-item:hover .skill-progress {
-                animation: pulse 2s infinite;
-            }
-
-            @keyframes pulse {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0.7; }
-            }
-
-            /* Floating Animation */
-            .floating {
-                animation: floating 3s ease-in-out infinite;
-            }
-
-            @keyframes floating {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-10px); }
-            }
-
-            /* Responsive Design */
-            @media (max-width: 768px) {
-                .skills-grid {
-                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                    gap: 0.8rem;
-                }
-                
-                .skill-item {
-                    padding: 1rem 0.5rem;
-                }
-                
-                .skill-icon {
-                    font-size: 2rem;
-                }
-                
-                .category-title {
-                    font-size: 1.2rem;
-                }
-            }
-
-            /* Dark/Light Theme Compatibility */
-            [data-bs-theme="light"] .skills-category {
-                background: rgba(255, 255, 255, 0.9);
-                border-color: rgba(13, 110, 253, 0.2);
-            }
-
-            [data-bs-theme="light"] .category-title {
-                color: #333;
-            }
-
-            [data-bs-theme="light"] .skill-item {
-                background: rgba(0, 0, 0, 0.05);
-                border-color: rgba(0, 0, 0, 0.1);
-            }
-
-            [data-bs-theme="light"] .skill-name {
-                color: #333;
-            }
-
-            [data-bs-theme="light"] .skill-item:hover .skill-name {
-                color: #0d6efd;
-            }
-
-            /* Interactive Ripple Effect */
-            .skill-item {
-                position: relative;
-                overflow: hidden;
-            }
-
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(13, 110, 253, 0.3);
-                transform: scale(0);
-                animation: ripple-animation 0.6s linear;
-                pointer-events: none;
-            }
-
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        </style>
 
         <!-- Contact section Styling -->
         <style>
@@ -640,11 +367,8 @@
                             <a class="nav-link active" href="#Contact">Contact<i class="bi bi-rocket-fill"></i></a>
                         </li>
                     </ul>
-                    <!-- Theme Toggle Icons 
-                    <div class="d-flex align-items-center">
-                        <i id="themeToggle" class="bi bi-sun-fill fs-4 text-white" style="cursor: pointer;"></i>
-                    </div>
-                    --!>
+                    
+                    
                 </div>
             </div>
         </nav>
@@ -714,84 +438,78 @@
 
       <!-- About section  -->
         <section id="about" class="py-5">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-12">
-                        <h1 class="text-center fw-bold display-4 mb-4">About Me</h1>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h1 class="section-title">About Me</h1>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <!-- Left side - Image -->
+                <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+                    <div class="text-center">
+                        <img src="{% static 'images/AboutMe.jpg' %}" alt="About Me" class="img-fluid about-image">
                     </div>
                 </div>
                 
-                <div class="row align-items-center">
-                    <!-- Left side - Image -->
-                    <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
-                        <div class="text-center">
-                            <img src="{% static 'images/AboutMe.jpg' %}" 
-                                alt="About Me Image" 
-                                class="img-fluid rounded-3 shadow-lg about-image">
-                        </div>
-                    </div>
-                    
-                    <!-- Right side - Text Content -->
-                    <div class="col-lg-7 col-md-6">
-                        <div class="about-content ps-lg-4">
-                            <h2 class="mb-3 fw-bold">Himanshu Mishra</h2>
+                <!-- Right side - Text Content -->
+                <div class="col-lg-7 col-md-6">
+                    <div class="about-content ps-lg-4">
+                        <h2 class="name-heading">Himanshu Mishra</h2>
+                        
+                        <p class="lead"> 
+                            I'm an MSc IT (AI) student with a BSc IT background, passionate about using Python and AI to solve real-world problems. I'm currently building expertise in Machine Learning, Data Analysis, and Deep Learning, with hands-on practice in tools like pandas, scikit-learn, and TensorFlow.
+                        </p>
+                        
+                        <p>
+                            In my final year of BSc, I developed a complete web application titled "Transport Module" using ASP.NET Core MVC and SQL Server, automating transport and logistics workflows. This experience gave me strong foundations in backend development, database design, and clean coding practices.
+                        </p>
+                        
+                        <p>
+                            I'm also exploring Generative AI with AWS, building projects that combine AI models with real-world applications. My learning journey includes working on DSA, RESTful APIs, and deploying models via Flask/Streamlit to the cloud.
+                        </p>
+                        
+                        <p>
+                            I'm committed to continuous learning and open to roles in AI/ML engineering, data science, Python development, or backend engineering. Let's connect if you're building something innovative with technology.
+                        </p>
+                        
+                        <!-- Contact Section -->
+                        <div class="contact-section">
+                            <h6>
+                                <i class="bi bi-envelope-heart me-2"></i>Ready to Work Together?
+                            </h6>
                             
-                            <p class="mb-3 lead"> 
-                                I'm an MSc IT (AI) student with a BSc IT background, passionate about using Python and AI to solve real-world problems. I'm currently building expertise in Machine Learning, Data Analysis, and Deep Learning, with hands-on practice in tools like pandas, scikit-learn, and TensorFlow.
-                            </p>
+                            <!-- Email Display -->
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-envelope-fill me-2" style="color: #7877c6;"></i>
+                                <span class="fw-bold me-2">Email:</span>
+                                <span id="about-email-address" class="text-info">mishrahimanshu2510@gmail.com</span>
+                                <button class="btn btn-sm btn-outline-info ms-2" onclick="copyAboutEmail()" title="Copy email address">
+                                    <i class="bi bi-copy"></i>
+                                </button>
+                            </div>
                             
-                            <p class="mb-3">
-                                In my final year of BSc, I developed a complete web application titled "Transport Module" using ASP.NET Core MVC and SQL Server, automating transport and logistics workflows. This experience gave me strong foundations in backend development, database design, and clean coding practices.
-                            </p>
-                            
-                            <p class="mb-3">
-                                I'm also exploring Generative AI with AWS, building projects that combine AI models with real-world applications. My learning journey includes working on DSA, RESTful APIs, and deploying models via Flask/Streamlit to the cloud.
-                            </p>
-                            
-                            <p class="mb-4">
-                                I'm committed to continuous learning and open to roles in AI/ML engineering, data science, Python development, or backend engineering. Let's connect if you're building something innovative with technology.
-                            </p>
-                            
-                            <!-- <a href="#Contact" class="btn btn-primary btn-lg px-4 py-2" id="hireme">
-                                <i class="bi bi-person-check me-2"></i>Hire Me
-                            </a> -->
-
-                            <!-- Enhanced Contact Section -->
-                            <div class="contact-section p-3 bg-dark border border-primary rounded-3 mb-3">
-                                <h6 class="text-primary mb-3">
-                                    <i class="bi bi-envelope-heart me-2"></i>Ready to Work Together?
-                                </h6>
-                                
-                                <!-- Email Display -->
-                                <div class="d-flex align-items-center mb-3">
-                                    <i class="bi bi-envelope-fill me-2 text-primary"></i>
-                                    <span class="fw-bold me-2">Email:</span>
-                                    <span id="about-email-address" class="text-info">mishrahimanshu2510@gmail.com</span>
-                                    <button class="btn btn-sm btn-outline-info ms-2" onclick="copyAboutEmail()" title="Copy email address">
-                                        <i class="bi bi-copy"></i>
-                                    </button>
-                                </div>
-                                
-                                <!-- Action Buttons -->
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <a href="mailto:mishrahimanshu2510@gmail.com?subject=Job Opportunity&body=Hi Himanshu, I'm interested in discussing a potential opportunity with you." 
-                                    class="btn btn-primary" id="hireme">
-                                        <i class="bi bi-person-check me-2"></i>Hire Me
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/himanshu-mishra022" target="_blank" 
-                                    class="btn btn-outline-primary">
-                                        <i class="bi bi-linkedin me-2"></i>LinkedIn
-                                    </a>
-                                    <a href="#Contact" class="btn btn-outline-secondary">
-                                        <i class="bi bi-chat-dots me-2"></i>Contact Form
-                                    </a>
-                                </div>
+                            <!-- Action Buttons -->
+                            <div class="d-flex gap-2 flex-wrap">
+                                <a href="mailto:mishrahimanshu2510@gmail.com?subject=Job Opportunity&body=Hi Himanshu, I'm interested in discussing a potential opportunity with you." 
+                                   class="btn btn-primary">
+                                    <i class="bi bi-person-check me-2"></i>Hire Me
+                                </a>
+                                <a href="https://www.linkedin.com/in/himanshu-mishra022" target="_blank" 
+                                   class="btn btn-outline-primary">
+                                    <i class="bi bi-linkedin me-2"></i>LinkedIn
+                                </a>
+                                <a href="#Contact" class="btn btn-outline-secondary">
+                                    <i class="bi bi-chat-dots me-2"></i>Contact Form
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
        <!-- Skills section  -->
         <section id="skills" class="py-5">
@@ -1201,7 +919,7 @@
 
 
            <script>
-                // Typewriter Animation Class
+                /* // Typewriter Animation Class */
                 class TypewriterAnimation {
                     constructor(element, options = {}) {
                         this.element = element;
@@ -1300,7 +1018,37 @@
                 });
            </script>
 
-           <!-- Hire Me Button Script Section -->
+
+           /* Copy email script */
+           <script>
+        function copyAboutEmail() {
+            const email = document.getElementById('about-email-address').textContent;
+            navigator.clipboard.writeText(email).then(function() {
+                const button = event.target.closest('button');
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<i class="bi bi-check"></i>';
+                button.classList.add('btn-success');
+                button.classList.remove('btn-outline-info');
+                
+                setTimeout(function() {
+                    button.innerHTML = originalHTML;
+                    button.classList.remove('btn-success');
+                    button.classList.add('btn-outline-info');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Could not copy email: ', err);
+                const emailElement = document.getElementById('about-email-address');
+                const range = document.createRange();
+                range.selectNode(emailElement);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+            });
+        }
+    </script>
+
+
+
+           /* <!-- Hire Me Button Script Section --> */
             <script>
                 function copyAboutEmail() {
                     const email = document.getElementById('about-email-address').textContent;
