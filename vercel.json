@@ -6,7 +6,7 @@
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb",
-        "runtime": "python3.13"
+        "runtime": "python3.9"
       }
     },
     {
@@ -23,8 +23,13 @@
       "dest": "/staticfiles/$1"
     },
     {
+      "src": "/media/(.*)",
+      "dest": "/staticfiles/media/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "Portfolio/wsgi.py"
     }
-  ]
+  ],
+  "outputDirectory": "staticfiles"
 }
