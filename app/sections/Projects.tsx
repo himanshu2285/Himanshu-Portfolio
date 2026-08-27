@@ -14,7 +14,7 @@ const projects = [
     tech: ["Python", "LangChain", "LLMs", "FastAPI", "RAG", "VectorDB"],
     icon: Bot,
     gradient: "from-cyan-500 to-blue-600",
-    github: "https://github.com/himanshu2285",
+    github: "https://github.com/himanshu2285/DataForge-AI",
   },
   {
     title: "Drone Imagery Analysis",
@@ -24,7 +24,7 @@ const projects = [
     tech: ["Python", "OpenCV", "Rasterio", "Scikit-learn", "NumPy", "GeoTIFF"],
     icon: Plane,
     gradient: "from-emerald-500 to-cyan-600",
-    github: "https://github.com/himanshu2285",
+    github: "https://github.com/himanshu2285/Drone-Imagery-AI",
   },
   {
     title: "AI News Summarizer",
@@ -34,7 +34,7 @@ const projects = [
     tech: ["React", "FastAPI", "PostgreSQL", "OpenAI API", "Web Scraping"],
     icon: Newspaper,
     gradient: "from-purple-500 to-pink-600",
-    github: "https://github.com/himanshu2285",
+    github: "https://github.com/himanshu2285/NewsLens-NewsSummarizer",
   },
   {
     title: "Smart Shopping Cart",
@@ -44,7 +44,7 @@ const projects = [
     tech: ["Python", "Django", "JavaScript", "SQLite", "REST API"],
     icon: ShoppingCart,
     gradient: "from-orange-500 to-red-600",
-    github: "https://github.com/himanshu2285",
+    github: "https://github.com/himanshu2285/Shopping-cart-app",
   },
 ];
 
@@ -108,12 +108,21 @@ export default function Projects() {
                 ))}
               </div>
 
-              <motion.div
+              {/* <motion.div
                 animate={{ x: hoveredIdx === idx ? 5 : 0 }}
                 className="flex items-center text-cyan-400 text-sm font-medium"
               >
                 View Details <ChevronRight className="w-4 h-4 ml-1" />
-              </motion.div>
+              </motion.div> */}
+              <motion.a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                animate={{ x: hoveredIdx === idx ? 5 : 0 }}
+                className="flex items-center text-cyan-400 text-sm font-medium hover:text-cyan-300 transition-colors"
+              >
+                View Details <ChevronRight className="w-4 h-4 ml-1" />
+              </motion.a>
             </motion.div>
           ))}
         </div>

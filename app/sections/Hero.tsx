@@ -83,8 +83,17 @@ export default function Hero() {
              className="p-3 rounded-full bg-slate-800/50 border border-slate-700 hover:border-cyan-500/50 hover:text-cyan-400 transition-all hover:scale-110">
             <LinkedInIcon className="w-5 h-5" />
           </a>
-          <a href="mailto:mishrahimanshu2510@gmail.com"
+          {/* <a href="mailto:mishrahimanshu2510@gmail.com"
              className="p-3 rounded-full bg-slate-800/50 border border-slate-700 hover:border-cyan-500/50 hover:text-cyan-400 transition-all hover:scale-110">
+            <Mail className="w-5 h-5" />
+          </a> */}
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=mishrahimanshu2510@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Email"
+            className="p-3 rounded-full bg-slate-800/50 border border-slate-700 hover:border-cyan-500/50 hover:text-cyan-400 transition-all hover:scale-110"
+          >
             <Mail className="w-5 h-5" />
           </a>
         </motion.div>

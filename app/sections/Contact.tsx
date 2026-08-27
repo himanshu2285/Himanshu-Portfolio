@@ -32,7 +32,8 @@ export default function Contact() {
           className="glass-card p-8 md:p-12 max-w-2xl mx-auto"
         >
           <div className="grid gap-6 mb-8 text-left">
-            <a href="mailto:mishrahimanshu2510@gmail.com" 
+            {/* <a href="mailto:mishrahimanshu2510@gmail.com"  */}
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mishrahimanshu2510@gmail.com"
                className="flex items-center gap-4 p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800 transition-colors group">
               <div className="p-3 rounded-lg bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors">
                 <Mail className="w-5 h-5 text-cyan-400" />
