@@ -7,14 +7,14 @@ import { GitHubIcon } from "@/components/icons"
 
 const projects = [
   {
-    title: "DataForge AI",
-    subtitle: "Agent-Based RAG Architecture",
+    title: "Cold Chain Logistics AI",
+    subtitle: "AI-Powered Supply Chain Intelligence",
     description:
-      "Autonomous AI system with multiple agents for data ingestion, semantic retrieval, and reasoning. Uses LangChain orchestration with vector DB integration for context-aware responses.",
-    tech: ["Python", "LangChain", "LLMs", "FastAPI", "RAG", "VectorDB"],
+      "Intelligent logistics system designed to analyze supply chain and fleet data, support cold-chain operations, and provide AI-driven insights for better decision-making. Integrates data ingestion, structured storage, and AI-assisted analysis.",
+    tech: ["Python", "SQL", "Pandas", "SQLAlchemy", "LLMs", "AI Agents"],
     icon: Bot,
     gradient: "from-cyan-500 to-blue-600",
-    github: "https://github.com/himanshu2285/DataForge-AI",
+    github: "https://github.com/himanshu2285/cold-chain",
   },
   {
     title: "Drone Imagery Analysis",
@@ -44,7 +44,7 @@ const projects = [
     tech: ["Python", "Django", "JavaScript", "SQLite", "REST API"],
     icon: ShoppingCart,
     gradient: "from-orange-500 to-red-600",
-    github: "https://github.com/himanshu2285/Shopping-cart-app",
+    github: "https://github.com/himanshu2285/Shop-Cart",
   },
 ];
 
